@@ -2,6 +2,7 @@ import config from "./app/config.js";
 import express from 'express'
 import cors from 'cors';
 import userRouter from './app/routes/user.routes.js'
+import categoryRouter from './app/routes/inventary.routes.js'
 
 const app = express()
 
@@ -10,6 +11,8 @@ app.use(express.json())
 app.use(express.static('app'))
 app.use(express.urlencoded({ extended: false }))
 
+
+app.use(categoryRouter)
 // RUTAS DE USUARIO
 app.use(userRouter)
 

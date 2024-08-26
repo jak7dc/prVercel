@@ -80,11 +80,10 @@ export const Login = async (req, res) => {
 
 export const findAssignUser = async (req, res, next) => {
   try {
-    const { username, password } = req.body
 
     const match = await client.execute({
-      sql: `SELECT * FROM Users  WHERE userName = ?`,
-      args: [username]
+      sql: `SELECT * FROM Users  WHERE user_id = ?`,
+      args: [req.auth]
     })
 
     const user = match.rows[0]
