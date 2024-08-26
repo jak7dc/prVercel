@@ -27,6 +27,7 @@ app.get('/', (req, res) => {
       <p>
         inplementacion de users,
         y archivo vercel.json
+        variables de entorno
       </p>
     </body>
   </html>
