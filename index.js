@@ -14,6 +14,9 @@ app.use(express.urlencoded({ extended: false }))
 // RUTAS DE USUARIO
 app.use(userRouter)
 
+app.get('/prueba', (req, res) => {
+  res.status(200).send('todo ok')
+})
 
 // LEVANTAR APP
 app.get('/', (req, res) => {
