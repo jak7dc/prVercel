@@ -11,3 +11,12 @@ export const getUsers = async (req, res) => {
     res.status(500).send(error)
   }
 }
+
+export const CreateUser = async (req, res) => {
+  try {
+
+
+  } catch (error) {
+    res.status(500).send(error)
+  }
+}

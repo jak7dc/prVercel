@@ -10,19 +10,36 @@ app.use(express.json())
 app.use(express.static('app'))
 app.use(express.urlencoded({ extended: false }))
 
+app.get('/prueba', (req, res) => {
+  res.status(200).send(config.prEntorno)
+})
+
 
 // RUTAS DE USUARIO
 app.use(userRouter)
 
-app.get('/prueba', (req, res) => {
-  res.status(200).send('todo ok')
+// POR ALGUN MOTIVO NO FUNCIONA LA TRAIDA DE LA PAGINA HTML XD
+app.get('/', (req, res) => {
+  const htmlResponse = `
+  <html>
+    <head>
+      <title>NodeJs y Express en Vercel</title>
+    </head>
+    <body>
+      <h1>
+        prueba de vercel
+      </h1>
+      <p>
+        inplementacion de users,
+        y archivo vercel.json
+      </p>
+    </body>
+  </html>
+`;
+  res.send(htmlResponse);
 })
 
 // LEVANTAR APP
-app.get('/', (req, res) => {
-  res.sendFile(process.cwd() + '/index.html')
-})
-
 app.listen(config.port, () => {
   console.log('server run on port: ' + config.port);
   console.log('http://localhost:' + config.port + '/');
