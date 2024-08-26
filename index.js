@@ -10,11 +10,6 @@ app.use(express.json())
 app.use(express.static('app'))
 app.use(express.urlencoded({ extended: false }))
 
-app.get('/prueba', (req, res) => {
-  res.status(200).send(config.prEntorno)
-})
-
-
 // RUTAS DE USUARIO
 app.use(userRouter)
 
