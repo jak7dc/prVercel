@@ -6,7 +6,17 @@ export const categoryQuery = {
 }
 
 export const productsQuery = {
-  get: `select * from Products`,
+  get: `SELECT
+  Products.product_id,
+  Products.product_name,
+  Products.product_description,
+  Products.product_price,
+  Products.product_measure,
+  Products.category_id,
+  Category.category_name
+FROM
+  Products
+  INNER JOIN Category ON Products.category_id = Category.category_id`,
   insert: `insert into Products 
   (product_name, product_description, product_price, product_measure, category_id) 
   values ( ?, ?, ?, ? ,?)`,
