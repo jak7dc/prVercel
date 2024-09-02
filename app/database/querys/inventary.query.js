@@ -22,6 +22,6 @@ export const productsQuery = {
   values ( ?, ?, ?, ? ,?)`,
   update: `update Products 
   set product_name= ? , product_description= ?, product_price= ?, product_measure= ?, category_id= ? 
-  where category_id= ?`,
+  where product_id= ?`,
   delete: `delete from Products where product_id= ?`
 }
