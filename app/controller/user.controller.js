@@ -5,11 +5,11 @@ import config from '../config.js';
 
 export const getUsers = async (req, res) => {
   try {
-    const responce = await client.execute({
+    const response = await client.execute({
       sql: `SELECT * FROM Users`,
       args: []
     })
-    res.status(200).send(responce)
+    res.status(200).send(response)
   } catch (error) {
     res.status(500).send(error)
   }
@@ -37,12 +37,12 @@ export const CreateUser = async (req, res) => {
     const salt = await bcrypt.genSalt()
     const hashed = await bcrypt.hash(password, salt)
 
-    const responce = await client.execute({
+    const response = await client.execute({
       sql: `INSERT INTO Users (userName , userPassword, userSalt) VALUES ( ?, ?, ?)`,
       args: [username, hashed, salt]
     })
 
-    if (responce.rowsAffected) return res.status(200).send({ message: 'user registered succesfully', data: responce })
+    if (response.rowsAffected) return res.status(200).send({ message: 'user registered succesfully', data: responce })
 
     return res.status(500).send({ message: 'server error' })
 
