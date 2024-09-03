@@ -42,7 +42,7 @@ export const CreateUser = async (req, res) => {
       args: [username, hashed, salt]
     })
 
-    if (response.rowsAffected) return res.status(200).send({ message: 'user registered succesfully', data: responce })
+    if (response.rowsAffected) return res.status(200).send({ message: 'user registered succesfully', data: response })
 
     return res.status(500).send({ message: 'server error' })
 
