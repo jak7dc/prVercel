@@ -3,6 +3,8 @@ import express from 'express'
 import cors from 'cors';
 import userRouter from './app/routes/user.routes.js'
 import categoryRouter from './app/routes/inventary.routes.js'
+import cotizacion from './app/routes/cotizacion.routes.js'
+
 
 const app = express()
 
@@ -11,7 +13,9 @@ app.use(express.json())
 app.use(express.static('app'))
 app.use(express.urlencoded({ extended: false }))
 
-
+// RUTAS DE COTIZACION
+app.use(cotizacion)
+// RUTAS DE INVENTARIO
 app.use(categoryRouter)
 // RUTAS DE USUARIO
 app.use(userRouter)
