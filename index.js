@@ -20,7 +20,6 @@ app.use(categoryRouter)
 // RUTAS DE USUARIO
 app.use(userRouter)
 
-// POR ALGUN MOTIVO NO FUNCIONA LA TRAIDA DE LA PAGINA HTML XD
 app.get('/', (req, res) => {
   const htmlResponse = `
   <html>
