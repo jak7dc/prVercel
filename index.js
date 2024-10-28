@@ -4,6 +4,7 @@ import cors from 'cors';
 import userRouter from './app/routes/user.routes.js'
 import categoryRouter from './app/routes/inventary.routes.js'
 import cotizacion from './app/routes/cotizacion.routes.js'
+import clientRoutes from './app/routes/clients.routes.js'
 
 
 const app = express()
@@ -19,6 +20,9 @@ app.use(cotizacion)
 app.use(categoryRouter)
 // RUTAS DE USUARIO
 app.use(userRouter)
+// RUTAS DE CLIENTES
+app.use(clientRoutes)
+
 
 // POR ALGUN MOTIVO NO FUNCIONA LA TRAIDA DE LA PAGINA HTML XD
 app.get('/', (req, res) => {

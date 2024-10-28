@@ -1,6 +1,22 @@
 import { client } from "../../database/connections.js"
 import { priceListQuery } from "../../database/querys/cotizacion.query.js"
 
+
+export const searchPriceList = async (req, res) => {
+  try {
+    const { search } = req.body
+    const response = await client.execute({
+      sql: priceListQuery.search,
+      args: [search]
+    })
+
+    res.status(200).send(response.rows)
+
+  } catch (error) {
+    res.status(500).send(error)
+  }
+}
+
 export const getPriceList = async (req, res) => {
   try {
 

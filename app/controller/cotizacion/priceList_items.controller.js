@@ -3,10 +3,13 @@ import { priceList_itemsQuery } from "../../database/querys/cotizacion.query.js"
 
 export const getPriceListItems = async (req, res) => {
   try {
+    const {search} = req.body
+
+    if (!search) return res.status(400).send({ message: 'data search is required', body: req.body, codeError: 'PLS_I01' })
 
     const response = await client.execute({
       sql: priceList_itemsQuery.get,
-      args: []
+      args: [search]
     })
 
     res.status(200).send(response.rows)
